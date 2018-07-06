@@ -1,18 +1,46 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import axios from 'axios'
 import './App.css';
+import Title from './components/Title/Title';
+import TitleEntry from './components/TitleEntry/TitleEntry';
+import EditNote from './components/EditNote/EditNote';
+import NewNote from './components/NewNote/NewNote';
 
 class App extends Component {
+  constructor () {
+    super();
+    this.state = {
+      notes: [],
+      title: '',
+      text: '',
+      id: 0,
+      selected: null,
+    }
+  }
+
+  componentDidMount () {
+    axios.get('/api/notes').then(response => {
+      console.log(response);
+      this.setState({
+        notes: response.data
+      })
+    })
+  }
+
+  
+
   render() {
+    console.log(this.state.notes)
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+        <header>
+          <Title />
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <main>
+          <NewNote />
+          <EditNote />
+          <TitleEntry notes={this.state.notes}/>
+        </main>
       </div>
     );
   }
