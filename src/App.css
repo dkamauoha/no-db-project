@@ -1,18 +1,27 @@
+* {
+  box-sizing: border-box;
+}
+
 .App {
-  background: orange;
+  /* background: lightskyblue; */
+  background-image: url('http://www.7diphone.com/wp-content/uploads/Textures/1136/Yellow%20Paper-640x1136%20wallpapers.jpg');
   text-align: center;
-  
+  height: 100vh;
+}
+
+header {
+  width: 100%;
+  height: 100px;
 }
 
 .display {
-  background: lightgray;
   display: flex;
   flex-direction: row; 
   height: 350px;
 }
 
 .title-entry {
-  width: 30%;
+  width: 35%;
 }
 
 .note-to-display {

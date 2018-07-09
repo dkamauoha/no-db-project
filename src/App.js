@@ -3,7 +3,6 @@ import axios from 'axios'
 import './App.css';
 import Title from './components/Title/Title';
 import TitleEntry from './components/TitleEntry/TitleEntry';
-import EditNote from './components/EditNote/EditNote';
 import NewNote from './components/NewNote/NewNote';
 import NoteToDisplay from './components/NoteToDisplay/NoteToDisplay'
 
@@ -78,7 +77,6 @@ class App extends Component {
           <NewNote notes={this.state.notes}
                    addToNotes={this.addToNotes}
                    selected={this.state.selected}/>
-          <EditNote />
           <div className='display'>
             <div className='title-entry'>
               <TitleEntry

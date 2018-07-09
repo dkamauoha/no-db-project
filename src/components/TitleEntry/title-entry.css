@@ -1,13 +1,15 @@
 .title-display-area {
-    background: grey;
+    background: rgb(23, 103, 129);
     width: 100%;
     height:100%;
     margin: 0 auto;
-    border: 2px solid orange;
+    border: 2px solid rgb(23, 103, 129);
+    border-radius: 10px;
 }
 
 .title {
-    background: lightcyan;
+    background: lightgrey;
     border-radius: 3px;
     width: 90%;
+    margin: 10px auto;
 }

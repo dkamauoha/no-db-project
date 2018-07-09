@@ -29,8 +29,8 @@ class NoteToDisplay extends Component {
 
     updateNote (id) {
         console.log(id);
-        axios.put(`/api/notes/${id}`, {title: this.state.savedTitleInput, note: this.state.savedNoteInput, indexID: this.indexID})
-             .then((results) => this.props.updateNotesFn(results.data));
+        axios.put(`/api/notes/${id}`, {title: this.props.updateTitle, note: this.props.updateNote})
+             .then((response) => this.props.updateNotesFn(response.data));
     }
 
     deleteNote (id) {
@@ -44,7 +44,6 @@ class NoteToDisplay extends Component {
     render () {
         console.log(this.props);
         let {id} = this.props.note;
-        console.log(this.indexID)
         return (
             <div className='note'>
                 <div>
