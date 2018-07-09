@@ -14,10 +14,14 @@ class App extends Component {
       notes: [],
       title: '',
       text: '',
-      selected: null,
+      selected: {},
+      updateTitle: '',
+      updateNote: '',
     }
     this.selectNote = this.selectNote.bind(this);
     this.addToNotes = this.addToNotes.bind(this);
+    this.updateNotes = this.updateNotes.bind(this);
+    this.updateEditInputs = this.updateEditInputs.bind(this);
   }
 
   componentDidMount () {
@@ -35,16 +39,36 @@ class App extends Component {
     })
   }
 
-
   selectNote (val) {
     this.setState({
       selected: val,
-  
+      updateTitle: val.title,
+      updateNote: val.note,
     })
   }
 
+  updateNotes (val) {
+    this.setState({
+      notes: val,
+    })
+  }
+
+  updateEditInputs (event) {
+    this.setState({
+      [event.target.name]: event.target.value
+    })
+  }
+
+  // idToDelete (num) {
+  //   this.setState({
+  //     deleteID: num
+  //   })
+  //   console.log(this.state.deleteID);
+  // }
+
   render() {
     // console.log(this.state.notes)
+    // console.log(this.state);
     return (
       <div className="App">
         <header>
@@ -59,11 +83,17 @@ class App extends Component {
             <div className='title-entry'>
               <TitleEntry
                 notes={this.state.notes}
-                selectNote={this.selectNote}/>
+                selectNote={this.selectNote}
+                // idToDelete={this.idToDelete}
+                />
             </div>
             <div className='note-to-display'>
             <NoteToDisplay 
-              note={this.state.selected}/>
+              note={this.state.selected}
+              updateTitle={this.state.updateTitle}
+              updateNote={this.state.updateNote}
+              updateNotesFn={this.updateNotes}
+              updateEditInputs={this.updateEditInputs}/>
             </div>  
           </div>
           

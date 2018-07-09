@@ -11,23 +11,35 @@ module.exports = {
         }
         notes.push(finishedNote);
         id++;
-        res.send(notes)
+        res.send(notes) 
     },
     read: (req, res) => {
         res.status(200).send(notes)
     },
     update: (req, res) => {
-        const {title, note} = req.body;
-        const updateID = parseInt(req.params.id);
-        const i = notes.findIndex(e => e.id === updateID);
-        let finalNote = notes[i]
-
-        notes[i] = {
-            id: finalNote.id,
-            title: title || finalNote.title,
-            note: note || finalNote.note
+        let updateID = notes.findIndex((e) => {
+            console.log('e', e);
+            console.log('req.params.id',req.params.id);
+            return e.id == req.params.id
+        })
+        console.log(updateID);
+        notes[updateID] = {
+            id: req.params.id,
+            title: req.body.title || notes[updateID].title,
+            note: req.body.note || notes[updateID].note
         }
-        res.status(200).send(messages);
+
+        res.status(200).send(notes);
+        // const updateID = parseInt(req.params.id);
+        // const i = notes.findIndex(e => e.id === updateID);
+        // let finalNote = notes[i]
+        
+        // notes[i] = {
+        //     id: finalNote.id,
+        //     title: title || finalNote.title,
+        //     note: note || finalNote.note
+        // }
+     
     },
     delete: (req, res) => {
         const deleteID = req.params.id;

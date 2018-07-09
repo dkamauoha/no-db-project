@@ -1,12 +1,14 @@
 .App {
+  background: orange;
   text-align: center;
+  
 }
 
 .display {
   background: lightgray;
   display: flex;
   flex-direction: row; 
-  height: 300px;
+  height: 350px;
 }
 
 .title-entry {

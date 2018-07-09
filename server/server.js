@@ -12,7 +12,7 @@ app.use(bodyParser.json());
 app.get('/api/notes', noteCtrl.read)
 app.get('/api/notes/:id', noteCtrl.read)
 app.post('/api/notes', noteCtrl.create)
-
+app.put('/api/notes/:id', noteCtrl.update)
 app.delete('/api/notes/:id', noteCtrl.delete);
 
 

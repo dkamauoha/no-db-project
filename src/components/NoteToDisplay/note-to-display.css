@@ -3,12 +3,16 @@
     width: 100%;
     border: 2px solid green;
     height: 30px;
+    margin-top: 20px;
 }
 
 .note-display {
     background: lightgreen;
     border: 2px solid blue;
     height: 200px;
+    width: 100%;
+    margin-top: 20px;
+    
 }
 
 .note {
