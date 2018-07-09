@@ -10,6 +10,7 @@ app.use(bodyParser.json());
 // ===== ENDPOINTS =====
 //app.get('/api/users, (req, res) => {})
 app.get('/api/notes', noteCtrl.read)
+app.get('/api/notes/:id', noteCtrl.read)
 app.post('/api/notes', noteCtrl.create)
 
 app.delete('/api/notes/:id', noteCtrl.delete);

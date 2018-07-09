@@ -1,4 +1,4 @@
-let notes = [{id: 0, title: '1', text: '1'}, {id: 1, title: '2', text: '2'}, {id: 2, title: '3', text: '3'}];
+let notes = [];
 let id = 0;
 
 module.exports = {
@@ -17,7 +17,17 @@ module.exports = {
         res.status(200).send(notes)
     },
     update: (req, res) => {
-        
+        const {title, note} = req.body;
+        const updateID = parseInt(req.params.id);
+        const i = notes.findIndex(e => e.id === updateID);
+        let finalNote = notes[i]
+
+        notes[i] = {
+            id: finalNote.id,
+            title: title || finalNote.title,
+            note: note || finalNote.note
+        }
+        res.status(200).send(messages);
     },
     delete: (req, res) => {
         const deleteID = req.params.id;

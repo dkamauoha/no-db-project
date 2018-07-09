@@ -1,12 +1,16 @@
 import React from 'react';
+import './title-entry.css'
 
 export default function TitleEntry (props) {
     let note = props.notes.map((e, i) => {
         return (
-            <p key={i}>{e.title}</p>
+            <p className='title
+            '
+               key={i}
+               onClick={() => props.selectNote(e)}>{e.title}</p>
         )
     })
     return (
-        <div>{note}</div>
+        <div className='title-display-area'>{note}</div>
     )
-} 
+}
